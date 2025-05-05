@@ -1,0 +1,83 @@
+[
+    {
+        "id": 0,
+        "firstName": "Minh",
+        "lastName": "Đức",
+        "email": "minhducn812@gmail.com",
+        "password": "1",
+        "status": "Active",
+        "role": "Super Admin"
+    },
+    {
+        "id": 1,
+        "firstName": "An",
+        "lastName": "Nguyễn",
+        "email": "an.admin@example.com",
+        "password": "1",
+        "status": "Active",
+        "role": "Admin"
+    },
+    {
+        "id": 2,
+        "firstName": "Bình",
+        "lastName": "Trần",
+        "email": "binh.seller@example.com",
+        "password": "1",
+        "status": "Active",
+        "role": "Seller"
+    },
+    {
+        "id": 3,
+        "firstName": "Cường",
+        "lastName": "Lê",
+        "email": "cuong.buyer@example.com",
+        "password": "1",
+        "status": "Active",
+        "role": "Buyer"
+    },
+    {
+        "id": 4,
+        "firstName": "Duyên",
+        "lastName": "Phạm",
+        "email": "duyen.supplier@example.com",
+        "password": "1",
+        "status": "Active",
+        "role": "Supplier"
+    },
+    {
+        "id": 5,
+        "firstName": "Ema",
+        "lastName": "Ngô",
+        "email": "ema.org@example.com",
+        "password": "1",
+        "status": "Active",
+        "role": "Organization"
+    },
+    {
+        "id": 6,
+        "firstName": "Phúc",
+        "lastName": "Lâm",
+        "email": "phuc.kol@example.com",
+        "password": "1",
+        "status": "Active",
+        "role": "KOL"
+    },
+    {
+        "id": 7,
+        "firstName": "Hải",
+        "lastName": "Vũ",
+        "email": "hai.partner@example.com",
+        "password": "1",
+        "status": "Active",
+        "role": "Partner"
+    },
+    {
+        "id": 8,
+        "firstName": "Trang",
+        "lastName": "Đỗ",
+        "email": "trang.employee@example.com",
+        "password": "1",
+        "status": "Active",
+        "role": "Employee"
+    }
+]

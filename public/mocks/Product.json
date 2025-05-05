@@ -1,0 +1,73 @@
+[
+    {
+        "id": "prod001",
+        "name": "Bluetooth Headphones X1",
+        "description": "High-quality wireless headphones with 30h battery life.",
+        "imageUrl": "https://example.com/images/headphone-x1.png",
+        "price": 1299000,
+        "stockStatus": "inStock",
+        "category": "Tech Accessories",
+        "brand": {
+            "id": "brand001",
+            "name": "TechZone",
+            "logoUrl": "https://example.com/logo-techzone.png",
+            "description": "Leading tech brand specializing in smart devices.",
+            "contactInfo": "support@techzone.com",
+            "status": "active",
+            "products": [],
+            "createdAt": "2024-05-01T10:00:00Z",
+            "updatedAt": "2025-04-20T12:00:00Z"
+        },
+        "discount": 10,
+        "isReviewEnabled": true,
+        "createdAt": "2025-03-10T08:30:00Z",
+        "updatedAt": "2025-04-01T15:45:00Z"
+    },
+    {
+        "id": "prod002",
+        "name": "Smartwatch Gen 5",
+        "description": "Next-gen smartwatch with advanced health tracking features.",
+        "imageUrl": "https://example.com/images/smartwatch-gen5.png",
+        "price": 2599000,
+        "stockStatus": "preOrder",
+        "category": "Wearable Devices",
+        "brand": {
+            "id": "brand001",
+            "name": "TechZone",
+            "logoUrl": "https://example.com/logo-techzone.png",
+            "description": "Leading tech brand specializing in smart devices.",
+            "contactInfo": "support@techzone.com",
+            "status": "active",
+            "products": [],
+            "createdAt": "2024-05-01T10:00:00Z",
+            "updatedAt": "2025-04-20T12:00:00Z"
+        },
+        "isReviewEnabled": false,
+        "createdAt": "2025-02-18T09:00:00Z",
+        "updatedAt": "2025-04-15T10:00:00Z"
+    },
+    {
+        "id": "prod003",
+        "name": "Laptop Pro X 2025",
+        "description": "High-performance laptop ideal for developers and designers.",
+        "imageUrl": "https://example.com/images/laptop-pro-x.png",
+        "price": 32990000,
+        "stockStatus": "outOfStock",
+        "category": "Computers",
+        "brand": {
+            "id": "brand001",
+            "name": "TechZone",
+            "logoUrl": "https://example.com/logo-techzone.png",
+            "description": "Leading tech brand specializing in smart devices.",
+            "contactInfo": "support@techzone.com",
+            "status": "active",
+            "products": [],
+            "createdAt": "2024-05-01T10:00:00Z",
+            "updatedAt": "2025-04-20T12:00:00Z"
+        },
+        "discount": 5,
+        "isReviewEnabled": true,
+        "createdAt": "2025-01-20T10:00:00Z",
+        "updatedAt": "2025-04-10T11:00:00Z"
+    }
+]

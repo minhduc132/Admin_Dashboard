@@ -1,0 +1,2 @@
+export { ProductDashboardPage } from './Products';
+

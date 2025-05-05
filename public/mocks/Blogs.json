@@ -1,0 +1,76 @@
+[
+    {
+        "id": "blog-1",
+        "title": "Getting Started with React",
+        "content": "This blog post helps you get started with React step by step...",
+        "userId": "user-1",
+        "status": "published",
+        "createdAt": "2024-12-01T10:00:00Z",
+        "updatedAt": "2025-01-15T12:00:00Z",
+        "tags": [
+            "react",
+            "javascript",
+            "frontend"
+        ],
+        "coverImage": "",
+        "likes": 12,
+        "comments": [
+            {
+                "id": "comment-1",
+                "content": "Thanks for the great tutorial!",
+                "createdAt": "2025-01-16T09:00:00Z",
+                "author": {
+                    "id": "user-2",
+                    "firstName": "Bob",
+                    "lastName": "Pham",
+                    "email": "bob@example.com"
+                }
+            }
+        ]
+    },
+    {
+        "id": "blog-2",
+        "title": "Understanding TypeScript",
+        "content": "This article explains the core features of TypeScript and how it helps with large-scale apps.",
+        "userId": "user-3",
+        "status": "draft",
+        "createdAt": "2025-03-10T14:20:00Z",
+        "updatedAt": "2025-03-12T16:00:00Z",
+        "tags": [
+            "typescript",
+            "javascript"
+        ],
+        "coverImage": "",
+        "likes": 5,
+        "comments": []
+    },
+    {
+        "id": "blog-3",
+        "title": "Deploying to Vercel",
+        "content": "A quick guide on deploying your frontend app to Vercel in minutes.",
+        "userId": "user-4",
+        "status": "pendingApproval",
+        "createdAt": "2025-04-01T09:30:00Z",
+        "updatedAt": "2025-04-01T10:15:00Z",
+        "tags": [
+            "deployment",
+            "vercel",
+            "frontend"
+        ],
+        "coverImage": "",
+        "likes": 3,
+        "comments": [
+            {
+                "id": "comment-2",
+                "content": "Can't wait to try this!",
+                "createdAt": "2025-04-02T11:00:00Z",
+                "author": {
+                    "id": "user-5",
+                    "firstName": "Nam",
+                    "lastName": "Le",
+                    "email": "nam@example.com"
+                }
+            }
+        ]
+    }
+]
