@@ -1,68 +1,157 @@
-import { useState, useEffect } from 'react';
-import { Table, TableProps, Typography } from 'antd';
-import { EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
-import { Category } from '../../types/shop';
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { Table, Typography, Row, Col, Button, Space } from "antd";
+import {
+  EditTwoTone,
+  DeleteTwoTone,
+  HomeOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
+import { Card, PageHeader } from "~/components";
+import { AddCategoryModal, EditCategoryModal } from "~/components/Category";
+import { Category } from "~/types/shop";
 
-type Props = {
-    data: Category[];
-    onEdit: (category: Category) => void;
-    onDelete: (id: string) => void;
-} & TableProps<Category>;
+const CategoryTable = () => {
+  const [categoryList, setCategoryList] = useState<Category[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
 
-export const CategoryTable = ({ data, onEdit, onDelete, ...others }: Props) => {
-    const [tableData, setTableData] = useState<Category[]>([]);
+  useEffect(() => {
+    const saved = localStorage.getItem("categoryList");
+    if (saved) {
+      setCategoryList(JSON.parse(saved));
+    }
+  }, []);
 
-    useEffect(() => {
-        setTableData(data);
-    }, [data]);
+  const handleAddCategory = (newCategory: Category) => {
+    const updated = [newCategory, ...categoryList];
+    setCategoryList(updated);
+    localStorage.setItem("categoryList", JSON.stringify(updated));
+  };
 
-    const handleEdit = (record: Category) => {
-        onEdit(record);
-    };
+  const handleDelete = (id: string) => {
+    const updated = categoryList.filter((c) => c.id !== id);
+    setCategoryList(updated);
+    localStorage.setItem("categoryList", JSON.stringify(updated));
+  };
 
-    const handleDeleteClick = (record: Category) => {
-        onDelete(record.id);
-    };
+  const handleEdit = (category: Category) => {
+    setCurrentCategory(category);
+    setIsEditModalOpen(true);
+  };
 
-    const COLUMNS = [
-        {
-            title: 'Category Name',
-            dataIndex: 'name',
-            key: 'name',
-            render: (_: any, record: Category) => (
-                <Typography.Paragraph ellipsis={{ rows: 1 }}>
-                    {record.name}
-                </Typography.Paragraph>
-            ),
-        },
-        {
-            title: 'Category Description',
-            dataIndex: 'desrciption',
-            key: 'desrciption',
-            render: (_: any, record: Category) => (
-                <Typography.Paragraph ellipsis={{ rows: 1 }}>
-                    {record.description}
-                </Typography.Paragraph>
-            ),
-        },
-        {
-            title: 'Actions',
-            key: 'actions',
-            render: (_: any, record: Category) => (
-                <div style={{ display: 'flex', gap: '12px' }}>
-                    <EditTwoTone style={{ color: '#1890ff', cursor: 'pointer' }} onClick={() => handleEdit(record)} />
-                    <DeleteTwoTone style={{ color: '#faad14', cursor: 'pointer' }} onClick={() => handleDeleteClick(record)} />
-                </div>
-            ),
-        },
-    ];
-
-    return (
-        <Table
-            dataSource={tableData}
-            columns={COLUMNS}
-            rowKey={(record) => record.id}
-            {...others}
-        />
+  const handleUpdateCategory = (updatedCategory: Category) => {
+    const updatedList = categoryList.map((category) =>
+      category.id === updatedCategory.id ? updatedCategory : category,
     );
+    setCategoryList(updatedList);
+    localStorage.setItem("categoryList", JSON.stringify(updatedList));
+    setIsEditModalOpen(false);
+  };
+
+  const COLUMNS = [
+    {
+      title: "Category Name",
+      dataIndex: "name",
+      key: "name",
+      render: (_: any, record: Category) => (
+        <Typography.Paragraph ellipsis={{ rows: 1 }}>
+          {record.name}
+        </Typography.Paragraph>
+      ),
+    },
+    {
+      title: "Category Description",
+      dataIndex: "description",
+      key: "description",
+      render: (_: any, record: Category) => (
+        <Typography.Paragraph ellipsis={{ rows: 1 }}>
+          {record.description}
+        </Typography.Paragraph>
+      ),
+    },
+    {
+      title: "Actions",
+      key: "actions",
+      render: (_: any, record: Category) => (
+        <div style={{ display: "flex", gap: "12px" }}>
+          <EditTwoTone
+            style={{ color: "#1890ff", cursor: "pointer" }}
+            onClick={() => handleEdit(record)}
+          />
+          <DeleteTwoTone
+            style={{ color: "#faad14", cursor: "pointer" }}
+            onClick={() => handleDelete(record.id)}
+          />
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <>
+      <Helmet>
+        <title>Category Dashboard</title>
+      </Helmet>
+
+      <PageHeader
+        title=""
+        breadcrumbs={[
+          {
+            title: (
+              <>
+                <HomeOutlined />
+                <span>Home</span>
+              </>
+            ),
+            path: "/",
+          },
+          { title: "Category" },
+        ]}
+      />
+
+      <Row gutter={[16, 16]}>
+        <Col span={24}>
+          <Card
+            title="Category Management"
+            extra={
+              <Space>
+                <Button
+                  icon={<PlusOutlined />}
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  New Category
+                </Button>
+              </Space>
+            }
+          >
+            <Table
+              dataSource={categoryList}
+              columns={COLUMNS}
+              rowKey={(record) => record.id}
+            />
+          </Card>
+        </Col>
+      </Row>
+
+      <AddCategoryModal
+        open={isModalOpen}
+        onCancel={() => setIsModalOpen(false)}
+        onOk={(newCategory) => {
+          handleAddCategory(newCategory);
+          setIsModalOpen(false);
+        }}
+      />
+
+      <EditCategoryModal
+        open={isEditModalOpen}
+        category={currentCategory}
+        onCancel={() => setIsEditModalOpen(false)}
+        onOk={handleUpdateCategory}
+      />
+    </>
+  );
 };
+
+export default CategoryTable;
